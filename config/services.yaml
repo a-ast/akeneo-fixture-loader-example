@@ -1,0 +1,36 @@
+parameters:
+
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+
+    App\:
+        resource: '../src/*'
+        exclude: '../src/{DependencyInjection,Entity,Migrations,Tests,Kernel.php}'
+
+
+    Aa\AkeneoDataLoader\Api\Credentials:
+        arguments:
+            - '%env(AKENEO_API_HOST)%'
+            - '%env(AKENEO_API_CLIENT_ID)%'
+            - '%env(AKENEO_API_SECRET)%'
+            - '%env(AKENEO_API_USER)%'
+            - '%env(AKENEO_API_PASSWORD)%'
+
+    Aa\AkeneoDataLoader\Api\Configuration:
+        arguments:
+            - '%kernel.project_dir%/import/'
+            - 100
+
+    Aa\AkeneoDataLoader\LoaderFactory:
+
+    Aa\AkeneoDataLoader\LoaderInterface:
+        factory: 'Aa\AkeneoDataLoader\LoaderFactory:createByCredentials'
+        arguments:
+            - '@Aa\AkeneoDataLoader\Api\Credentials'
+            - '@Aa\AkeneoDataLoader\Api\Configuration'
+
+    Aa\AkeneoFixtureLoader\FixtureLoader:
+        arguments:
+            - '@Aa\AkeneoDataLoader\LoaderInterface'
