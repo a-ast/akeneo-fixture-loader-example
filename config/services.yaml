@@ -31,6 +31,9 @@ services:
             - '@Aa\AkeneoDataLoader\Api\Credentials'
             - '@Aa\AkeneoDataLoader\Api\Configuration'
 
+    Aa\AkeneoFixtureLoader\FixtureLoaderFactory:
+
     Aa\AkeneoFixtureLoader\FixtureLoader:
+        factory: 'Aa\AkeneoFixtureLoader\FixtureLoaderFactory:create'
         arguments:
             - '@Aa\AkeneoDataLoader\LoaderInterface'

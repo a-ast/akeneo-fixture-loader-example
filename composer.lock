@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "e690740c636c5976a26deec9dad20b84",
+    "content-hash": "fd954ce2baff5403a2cfd868848ac133",
     "packages": [
         {
             "name": "aa/akeneo-data-loader",
@@ -51,21 +51,22 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/a-ast/akeneo-fixture-loader.git",
-                "reference": "de18007e04a25c168b48e92f03c2e38f3a4d1a20"
+                "reference": "b3c6809cb47ce36054ffcd112ad841971ab39ee7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/a-ast/akeneo-fixture-loader/zipball/de18007e04a25c168b48e92f03c2e38f3a4d1a20",
-                "reference": "de18007e04a25c168b48e92f03c2e38f3a4d1a20",
+                "url": "https://api.github.com/repos/a-ast/akeneo-fixture-loader/zipball/b3c6809cb47ce36054ffcd112ad841971ab39ee7",
+                "reference": "b3c6809cb47ce36054ffcd112ad841971ab39ee7",
                 "shasum": ""
             },
             "require": {
                 "aa/akeneo-data-loader": "@dev",
+                "fzaninotto/faker": "^1.9@dev",
                 "php": ">=7.2"
             },
             "require-dev": {
                 "phpspec/phpspec": "^5.1",
-                "phpstan/phpstan": "^0.11.7"
+                "phpstan/phpstan": "^0.11.0@dev"
             },
             "type": "library",
             "autoload": {
@@ -81,7 +82,7 @@
                 }
             ],
             "description": "Akeneo PIM Fixture Loader",
-            "time": "2019-05-31T23:46:38+00:00"
+            "time": "2019-06-01T22:02:15+00:00"
         },
         {
             "name": "akeneo/api-php-client",
@@ -188,6 +189,56 @@
                 "stream_filter_register"
             ],
             "time": "2019-04-09T12:31:48+00:00"
+        },
+        {
+            "name": "fzaninotto/faker",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/fzaninotto/Faker.git",
+                "reference": "fb218ada627f7c750c6e0e41cae486d2db48e911"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/fzaninotto/Faker/zipball/fb218ada627f7c750c6e0e41cae486d2db48e911",
+                "reference": "fb218ada627f7c750c6e0e41cae486d2db48e911",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^5.3.3 || ^7.0"
+            },
+            "require-dev": {
+                "ext-intl": "*",
+                "phpunit/phpunit": "^4.8.35 || ^5.7",
+                "squizlabs/php_codesniffer": "^1.5"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.9-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Faker\\": "src/Faker/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "François Zaninotto"
+                }
+            ],
+            "description": "Faker is a PHP library that generates fake data for you.",
+            "keywords": [
+                "data",
+                "faker",
+                "fixtures"
+            ],
+            "time": "2019-04-16T09:48:34+00:00"
         },
         {
             "name": "guzzlehttp/guzzle",
@@ -2628,6 +2679,7 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
+        "aa/akeneo-data-loader": 20,
         "aa/akeneo-fixture-loader": 20
     },
     "prefer-stable": false,

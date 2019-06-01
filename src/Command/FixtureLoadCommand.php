@@ -33,14 +33,13 @@ class FixtureLoadCommand extends Command
     {
         $fixtures = [
 
-            'product_{1..3}' => [
-                'identifier' => 'test-'.bin2hex(openssl_random_pseudo_bytes(10)),
+            'product_{1..10}' => [
+                'identifier' => 'test-<ean8()>',
             ]
 
         ];
 
-
-        $this->loader->load($fixtures);
+        $this->loader->loadData($fixtures);
     }
 
     protected function outputException(LoaderValidationException $e, OutputInterface $output)

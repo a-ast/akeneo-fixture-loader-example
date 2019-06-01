@@ -5,6 +5,7 @@
         "php": "^7.2",
         "ext-ctype": "*",
         "ext-iconv": "*",
+        "aa/akeneo-data-loader": "dev-master",
         "aa/akeneo-fixture-loader": "dev-master",
         "symfony/console": "4.3.*",
         "symfony/dotenv": "4.3.*",

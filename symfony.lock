@@ -11,6 +11,9 @@
     "clue/stream-filter": {
         "version": "v1.4.1"
     },
+    "fzaninotto/faker": {
+        "version": "1.9-dev"
+    },
     "guzzlehttp/guzzle": {
         "version": "6.3-dev"
     },
