@@ -7,6 +7,8 @@ use Aa\AkeneoFixtureLoader\FixtureLoader;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
+use Symfony\Component\Console\Style\SymfonyStyle;
+use Symfony\Component\Stopwatch\Stopwatch;
 
 class FixtureLoadCommand extends Command
 {
@@ -33,27 +35,66 @@ class FixtureLoadCommand extends Command
     {
         $fixtures = [
 
-            'product_{1..10}' => [
+            'product_{1..10000}' => [
                 'identifier' => 'test-<ean8()>',
+                'family' => 'toiletries',
+                'values' => [
+                    'name' => [[
+                        'data' => '<text()>',
+                        'locale' => 'en_GB',
+                        'scope' => null,
+                    ]],
+                    'short_description' => [[
+                        'data' => '<paragraph()>',
+                        'locale' => 'en_GB',
+                        'scope' => 'ecommerce',
+                    ]],
+                    'description' => [[
+                        'data' => '<randomHtml()>',
+                        'locale' => 'en_GB',
+                        'scope' => null,
+                    ]],
+                ]
             ]
 
         ];
 
-        $this->loader->loadData($fixtures);
+
+        $style = new SymfonyStyle($input, $output);
+        $stopwatch = new Stopwatch();
+        $event = $stopwatch->start('load');
+
+        try {
+            $this->loader->loadData($fixtures);
+        } catch (LoaderValidationException $e) {
+            $this->outputException($e, $style);
+        }
+
+        $stopwatch->stop('load');
+
+        $style->table([], [
+
+            ['Time', ($event->getDuration() / 1000). ' s'],
+            ['Memory', ($event->getMemory() / (1024*1024)). ' MB'],
+
+        ]);
     }
 
-    protected function outputException(LoaderValidationException $e, OutputInterface $output)
+    private function outputException(LoaderValidationException $e, SymfonyStyle $style)
     {
-        $output->writeln(sprintf('<error>%s</error>', $e->getMessage()));
+        $messages = [$e->getMessage()];
 
-        foreach ($e->getValidationErrors() as $error) {
-            $output->writeln(
-                sprintf(
-                    '<error>%s: %s</error>',
-                    $error['code'] ?? '',
-                    $error['message'] ?? ''
-                )
-            );
+        var_dump($e->getValidationErrors());
+
+        foreach ($e->getValidationErrors() as $violation) {
+
+            $messages[] = sprintf('%s: %s',$violation['code'] ?? '',$violation['message'] ?? '');
+
+            foreach ($violation['errors'] ?? [] as $error) {
+                $messages[] = sprintf(' - %s: %s',$error['property'] ?? '',$error['message'] ?? '');
+            }
         }
+
+        $style->block($messages, null, 'error');
     }
 }
