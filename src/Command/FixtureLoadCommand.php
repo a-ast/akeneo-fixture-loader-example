@@ -35,8 +35,8 @@ class FixtureLoadCommand extends Command
     {
         $fixtures = [
 
-            'product_{1..10000}' => [
-                'identifier' => 'test-<ean8()>',
+            'product_{1..100}' => [
+                'identifier' => '<ean13()>',
                 'family' => 'toiletries',
                 'values' => [
                     'name' => [[
@@ -58,7 +58,6 @@ class FixtureLoadCommand extends Command
             ]
 
         ];
-
 
         $style = new SymfonyStyle($input, $output);
         $stopwatch = new Stopwatch();
