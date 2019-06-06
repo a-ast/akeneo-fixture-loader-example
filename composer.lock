@@ -12,16 +12,16 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/a-ast/akeneo-data-loader.git",
-                "reference": "d8df21d8e78559fc2e339cbc07a91e6771941294"
+                "reference": "dd9e7b32df4c46bb3d1bb6a8687c50831b0fd852"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/a-ast/akeneo-data-loader/zipball/d8df21d8e78559fc2e339cbc07a91e6771941294",
-                "reference": "d8df21d8e78559fc2e339cbc07a91e6771941294",
+                "url": "https://api.github.com/repos/a-ast/akeneo-data-loader/zipball/dd9e7b32df4c46bb3d1bb6a8687c50831b0fd852",
+                "reference": "dd9e7b32df4c46bb3d1bb6a8687c50831b0fd852",
                 "shasum": ""
             },
             "require": {
-                "akeneo/api-php-client": "^4.0",
+                "akeneo/api-php-client-ee": "^4.0",
                 "php": ">=7.2",
                 "php-http/guzzle6-adapter": "^2.0"
             },
@@ -43,7 +43,7 @@
                 }
             ],
             "description": "Akeneo PIM Data Loader",
-            "time": "2019-06-05 20:47:08"
+            "time": "2019-06-06 20:58:04"
         },
         {
             "name": "aa/akeneo-fixture-loader",
@@ -51,12 +51,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/a-ast/akeneo-fixture-loader.git",
-                "reference": "d9afe828c6efee499d38e34b49d29ba21e1084dd"
+                "reference": "26a3f11b59f58e84161a7a80fccde1b4ebe4c9eb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/a-ast/akeneo-fixture-loader/zipball/d9afe828c6efee499d38e34b49d29ba21e1084dd",
-                "reference": "d9afe828c6efee499d38e34b49d29ba21e1084dd",
+                "url": "https://api.github.com/repos/a-ast/akeneo-fixture-loader/zipball/26a3f11b59f58e84161a7a80fccde1b4ebe4c9eb",
+                "reference": "26a3f11b59f58e84161a7a80fccde1b4ebe4c9eb",
                 "shasum": ""
             },
             "require": {
@@ -82,7 +82,7 @@
                 }
             ],
             "description": "Akeneo PIM Fixture Loader",
-            "time": "2019-06-02 22:09:31"
+            "time": "2019-06-05 21:33:32"
         },
         {
             "name": "akeneo/api-php-client",
@@ -137,6 +137,50 @@
             ],
             "description": "Akeneo PIM client for the API",
             "time": "2019-02-15T15:59:44+00:00"
+        },
+        {
+            "name": "akeneo/api-php-client-ee",
+            "version": "4.0.x-dev",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/akeneo/api-php-client-ee.git",
+                "reference": "4d583ddc6ec17a2a4e102e430d44ebc91da2295d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/akeneo/api-php-client-ee/zipball/4d583ddc6ec17a2a4e102e430d44ebc91da2295d",
+                "reference": "4d583ddc6ec17a2a4e102e430d44ebc91da2295d",
+                "shasum": ""
+            },
+            "require": {
+                "akeneo/api-php-client": "4.0.x-dev"
+            },
+            "require-dev": {
+                "donatj/mock-webserver": "^2.0",
+                "friendsofphp/php-cs-fixer": "^2.14",
+                "php-http/guzzle6-adapter": "^2.0",
+                "phpspec/phpspec": "^5.0",
+                "phpunit/phpunit": "^5.7",
+                "symfony/yaml": "^4.2"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Akeneo\\PimEnterprise\\ApiClient\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "OSL-3.0"
+            ],
+            "authors": [
+                {
+                    "name": "Akeneo",
+                    "homepage": "http://www.akeneo.com"
+                }
+            ],
+            "description": "Akeneo PIM ENTERPRISE client for the API",
+            "time": "2019-03-19T14:57:13+00:00"
         },
         {
             "name": "clue/stream-filter",
@@ -363,12 +407,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/guzzle/psr7.git",
-                "reference": "dd1ba1de1234e5e8939809bbd9e103e7aeebf0d5"
+                "reference": "5ce1cec1a26c5d2ccd259157f58a32b7facd545a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/psr7/zipball/dd1ba1de1234e5e8939809bbd9e103e7aeebf0d5",
-                "reference": "dd1ba1de1234e5e8939809bbd9e103e7aeebf0d5",
+                "url": "https://api.github.com/repos/guzzle/psr7/zipball/5ce1cec1a26c5d2ccd259157f58a32b7facd545a",
+                "reference": "5ce1cec1a26c5d2ccd259157f58a32b7facd545a",
                 "shasum": ""
             },
             "require": {
@@ -426,7 +470,7 @@
                 "uri",
                 "url"
             ],
-            "time": "2019-05-26T12:43:51+00:00"
+            "time": "2019-06-06T09:22:35+00:00"
         },
         {
             "name": "php-http/discovery",
@@ -1128,12 +1172,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/cache.git",
-                "reference": "3159c7bcc791963c5398c155af8f1e39662c93a6"
+                "reference": "2edc417da273bafee589a8758f0278416d04af38"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/cache/zipball/3159c7bcc791963c5398c155af8f1e39662c93a6",
-                "reference": "3159c7bcc791963c5398c155af8f1e39662c93a6",
+                "url": "https://api.github.com/repos/symfony/cache/zipball/2edc417da273bafee589a8758f0278416d04af38",
+                "reference": "2edc417da273bafee589a8758f0278416d04af38",
                 "shasum": ""
             },
             "require": {
@@ -1198,7 +1242,7 @@
                 "caching",
                 "psr6"
             ],
-            "time": "2019-06-05T13:26:46+00:00"
+            "time": "2019-06-06T10:05:02+00:00"
         },
         {
             "name": "symfony/cache-contracts",
@@ -1865,12 +1909,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/framework-bundle.git",
-                "reference": "e96bda12b485fb347d56c7204708e3c2be009e7c"
+                "reference": "fe407e6840d2b8f34c3fb67111e05c6d65319ef6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/framework-bundle/zipball/e96bda12b485fb347d56c7204708e3c2be009e7c",
-                "reference": "e96bda12b485fb347d56c7204708e3c2be009e7c",
+                "url": "https://api.github.com/repos/symfony/framework-bundle/zipball/fe407e6840d2b8f34c3fb67111e05c6d65319ef6",
+                "reference": "fe407e6840d2b8f34c3fb67111e05c6d65319ef6",
                 "shasum": ""
             },
             "require": {
@@ -1979,7 +2023,7 @@
             ],
             "description": "Symfony FrameworkBundle",
             "homepage": "https://symfony.com",
-            "time": "2019-06-05T13:25:51+00:00"
+            "time": "2019-06-06T08:35:06+00:00"
         },
         {
             "name": "symfony/http-foundation",
@@ -1987,12 +2031,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/http-foundation.git",
-                "reference": "2b2b48731c5e8f7f09548408998659ee7e462fa3"
+                "reference": "b7e4945dd9b277cd24e93566e4da0a87956392a9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/http-foundation/zipball/2b2b48731c5e8f7f09548408998659ee7e462fa3",
-                "reference": "2b2b48731c5e8f7f09548408998659ee7e462fa3",
+                "url": "https://api.github.com/repos/symfony/http-foundation/zipball/b7e4945dd9b277cd24e93566e4da0a87956392a9",
+                "reference": "b7e4945dd9b277cd24e93566e4da0a87956392a9",
                 "shasum": ""
             },
             "require": {
@@ -2034,7 +2078,7 @@
             ],
             "description": "Symfony HttpFoundation Component",
             "homepage": "https://symfony.com",
-            "time": "2019-06-05T13:25:51+00:00"
+            "time": "2019-06-06T10:05:02+00:00"
         },
         {
             "name": "symfony/http-kernel",
@@ -2042,12 +2086,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/http-kernel.git",
-                "reference": "b3493247cfe097c16e34f81d3023822ae7e46e3c"
+                "reference": "ab16e7dc7bd3a4a57531aac411901e940854394e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/http-kernel/zipball/b3493247cfe097c16e34f81d3023822ae7e46e3c",
-                "reference": "b3493247cfe097c16e34f81d3023822ae7e46e3c",
+                "url": "https://api.github.com/repos/symfony/http-kernel/zipball/ab16e7dc7bd3a4a57531aac411901e940854394e",
+                "reference": "ab16e7dc7bd3a4a57531aac411901e940854394e",
                 "shasum": ""
             },
             "require": {
@@ -2126,7 +2170,7 @@
             ],
             "description": "Symfony HttpKernel Component",
             "homepage": "https://symfony.com",
-            "time": "2019-06-05T13:25:51+00:00"
+            "time": "2019-06-06T14:13:36+00:00"
         },
         {
             "name": "symfony/mime",

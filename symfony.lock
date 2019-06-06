@@ -8,6 +8,9 @@
     "akeneo/api-php-client": {
         "version": "4.0.x-dev"
     },
+    "akeneo/api-php-client-ee": {
+        "version": "4.0.x-dev"
+    },
     "clue/stream-filter": {
         "version": "v1.4.1"
     },
