@@ -18,22 +18,16 @@ services:
             - '%env(AKENEO_API_USER)%'
             - '%env(AKENEO_API_PASSWORD)%'
 
-    Aa\AkeneoDataLoader\Api\Configuration:
+    Aa\AkeneoDataLoader\Connector\Configuration:
         arguments:
             - '%kernel.project_dir%/import/'
             - 100
 
-    Aa\AkeneoDataLoader\LoaderFactory:
-
-    Aa\AkeneoDataLoader\LoaderInterface:
-        factory: 'Aa\AkeneoDataLoader\LoaderFactory:createByCredentials'
-        arguments:
-            - '@Aa\AkeneoDataLoader\Api\Credentials'
-            - '@Aa\AkeneoDataLoader\Api\Configuration'
-
     Aa\AkeneoFixtureLoader\FixtureLoaderFactory:
+        arguments:
+            - '@Aa\AkeneoDataLoader\Connector\Configuration'
 
     Aa\AkeneoFixtureLoader\FixtureLoader:
-        factory: 'Aa\AkeneoFixtureLoader\FixtureLoaderFactory:create'
+        factory: 'Aa\AkeneoFixtureLoader\FixtureLoaderFactory:createByCredentials'
         arguments:
-            - '@Aa\AkeneoDataLoader\LoaderInterface'
+            - '@Aa\AkeneoDataLoader\Api\Credentials'

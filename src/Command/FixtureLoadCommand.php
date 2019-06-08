@@ -2,7 +2,7 @@
 
 namespace App\Command;
 
-use Aa\AkeneoDataLoader\Exception\LoaderValidationException;
+use Aa\AkeneoDataLoader\Exception\LoaderException;
 use Aa\AkeneoFixtureLoader\FixtureLoader;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
@@ -35,29 +35,38 @@ class FixtureLoadCommand extends Command
     {
         $fixtures = [
 
-            'product_{1..100}' => [
+            'product_{1..10}' => [
                 'identifier' => '<ean13()>',
-                'family' => 'toiletries',
+//                'family' => 'toiletries',
                 'values' => [
                     'name' => [[
                         'data' => '<text()>',
-                        'locale' => 'en_GB',
+                        'locale' => null,
                         'scope' => null,
                     ]],
-                    'short_description' => [[
-                        'data' => '<paragraph()>',
-                        'locale' => 'en_GB',
-                        'scope' => 'ecommerce',
-                    ]],
+//                    'short_description' => [[
+//                        'data' => '<paragraph()>',
+//                        'locale' => 'en_GB',
+//                        'scope' => 'ecommerce',
+//                    ]],
                     'description' => [[
                         'data' => '<randomHtml()>',
-                        'locale' => 'en_GB',
-                        'scope' => null,
+                        'locale' => 'en_US',
+                        'scope' => 'ecommerce',
                     ]],
                 ]
             ]
 
         ];
+
+
+//        $fixtures = [
+//
+//            'asset_{1..10}' => [
+//                'code' => 'asset_<ean13()>',
+//            ]
+//
+//        ];
 
         $style = new SymfonyStyle($input, $output);
         $stopwatch = new Stopwatch();
@@ -65,7 +74,7 @@ class FixtureLoadCommand extends Command
 
         try {
             $this->loader->loadData($fixtures);
-        } catch (LoaderValidationException $e) {
+        } catch (LoaderException $e) {
             $this->outputException($e, $style);
         }
 
@@ -79,20 +88,9 @@ class FixtureLoadCommand extends Command
         ]);
     }
 
-    private function outputException(LoaderValidationException $e, SymfonyStyle $style)
+    private function outputException(LoaderException $e, SymfonyStyle $style)
     {
-        $messages = [$e->getMessage()];
-
-        var_dump($e->getValidationErrors());
-
-        foreach ($e->getValidationErrors() as $violation) {
-
-            $messages[] = sprintf('%s: %s',$violation['code'] ?? '',$violation['message'] ?? '');
-
-            foreach ($violation['errors'] ?? [] as $error) {
-                $messages[] = sprintf(' - %s: %s',$error['property'] ?? '',$error['message'] ?? '');
-            }
-        }
+        $messages = [$e->getMessage()] + $e->getErrors();
 
         $style->block($messages, null, 'error');
     }
